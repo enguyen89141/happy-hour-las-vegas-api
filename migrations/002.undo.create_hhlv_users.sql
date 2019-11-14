@@ -1,0 +1,4 @@
+ALTER TABLE hhlv_deals
+  DROP COLUMN IF EXISTS user_id;
+
+DROP TABLE IF EXISTS hhlv_users;
