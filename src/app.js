@@ -26,7 +26,7 @@ app.use('/api/comments', commentsRouter)
 app.use('/api/auth', authRouter)
 
 app.get('/', (req, res) => {
-    res.send('Hello, world!')
+    res.send('TEST TEST TEST')
 })
 
 app.use(function errorHandler(error, req, res, next) {
