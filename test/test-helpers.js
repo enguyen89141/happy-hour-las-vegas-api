@@ -5,25 +5,25 @@ function makeUsersArray() {
     {
       id: 1,
       user_name: 'test-user-1',
-      password: 'password',
+      password: 'Password1!',
       date_created: '2029-01-22T16:28:32.615Z',
     },
     {
       id: 2,
       user_name: 'test-user-2',
-      password: 'password',
+      password: 'Password2!',
       date_created: '2029-01-22T16:28:32.615Z',
     },
     {
       id: 3,
       user_name: 'test-user-3',
-      password: 'password',
+      password: 'Password3!',
       date_created: '2029-01-22T16:28:32.615Z',
     },
     {
       id: 4,
       user_name: 'test-user-4',
-      password: 'password',
+      password: 'Password4!',
       date_created: '2029-01-22T16:28:32.615Z',
     },
   ]

@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const dealsService = require('./deals-service')
+const { requireAuth } = require('../middleware/basic-auth')
 
 const dealsRouter = express.Router()
 const jsonParser = express.json()
@@ -94,5 +95,19 @@ dealsRouter
       })
       .catch(next)
   })
+
+  dealsRouter
+    .route('/:deal_id/comments/')
+    .all(requireAuth)
+    .get((req, res, next) => {
+      dealsService.getCommentsForDeal(
+        req.app.get('db'),
+        req.params.deal_id
+      )
+        .then(comments => {
+          res.json(comments)
+        })
+        .catch(next)
+    })
 
   module.exports = dealsRouter
