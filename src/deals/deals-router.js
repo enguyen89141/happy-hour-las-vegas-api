@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 const dealsService = require('./deals-service')
-const { requireAuth } = require('../middleware/basic-auth')
+const { requireAuth } = require('../middleware/jwt-auth')
 
 const dealsRouter = express.Router()
 const jsonParser = express.json()
