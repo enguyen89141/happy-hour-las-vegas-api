@@ -30,11 +30,21 @@ const DealsService = {
       .where({ id })
       .update(newDealFields)
   },
-  getCommentsForDeal(knex, db, deal_id) {
+  getCommentsForDeal(knex, deal_id) {
     return knex
       .from('hhlv_comments')
       .select('*')
       .where('deal_id', deal_id)
+  },
+  getComments(knex) {
+    return knex
+    .from('hhlv_comments AS a', 'hhlv_deals AS b')
+    .select('c.text', 'c.date_created', 'b.id')
+    .leftJoin(
+      'hhlv_comments AS a',
+      'b.id',
+      'a.user_id'
+    )
   },
   serializeDealComment(comment) {
     const { user } = comment
@@ -51,3 +61,9 @@ const DealsService = {
 }
 
 module.exports = DealsService
+
+/**raw(`select a.text, a.date_created, c.user_name, b.id
+    from hhlv_comments a
+    left join hhlv_deals b on a.deal_id=b.id
+    left join hhlv_users c on a.user_id=c.id
+    order by b.id;`)*/
