@@ -98,7 +98,7 @@ dealsRouter
 
   dealsRouter
     .route('/:deal_id/comments/')
-    //.all(requireAuth)
+    .all(requireAuth)
     .get((req, res, next) => {
       dealsService.getCommentsForDeal(
         req.app.get('db'),
